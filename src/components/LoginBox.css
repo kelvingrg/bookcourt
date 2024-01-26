@@ -1,0 +1,12 @@
+.already-account{
+    font-size: .7rem;
+    margin-top: 2rem;
+}
+.already-account i{
+    color: blue;
+    font-style: italic;
+    
+}
+.already-account i:hover{
+text-decoration: underline;
+}
