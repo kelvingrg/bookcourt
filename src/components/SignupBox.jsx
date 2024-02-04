@@ -3,10 +3,15 @@ import Input from './common/Input'
 import './LoginBox.css'
 
 function SignupBox({setBoxType}) {
+  const onchange=(e)=>{
+    console.log(e.target.parentElement);
+    e.target.parentElement.style.borderColor = 'red';
+
+  }
     return (
         <div className='d-flex flex-column'>
             <div className='mt-3'>
-            <Input   className="" label={'first Name'} type={'text'}/>
+            <Input   className="" label={'first Name'} type={'text'} onchange={onchange}/>
             </div>
             <div className='mt-3'>
             <Input   className="" label={'last Name'} type={'text'}/>

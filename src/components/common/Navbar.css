@@ -24,5 +24,17 @@
 
 }
 .navbar-collapse{
-    height: 40px !important;
+    min-height: 40px !important;
+}
+.navbar-collapse  li{
+    height: 40px;
+    
+}
+.navbar-brand{
+    color: var(--brand-dark);
+    font-style: oblique;
+    font-variant: small-caps;
+}
+.navbar-brand img{
+    height: 20px;
 }

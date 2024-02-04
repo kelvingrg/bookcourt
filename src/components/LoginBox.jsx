@@ -6,7 +6,7 @@ function LoginBox({setBoxType}) {
   return (
     <div className='d-flex flex-column'>
         <div className='mt-3'>
-        <Input  className="" label={'Email'} type={'text'}/>
+        <Input  className="" label={'Email'} type={'text'} value={null}/>
         </div>
         <div className='mt-4'>
         <Input label={'password'} type={'text'}/>

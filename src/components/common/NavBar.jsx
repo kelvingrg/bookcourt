@@ -1,5 +1,6 @@
 import React from 'react'
 import './Navbar.css'
+import games from '../../assets/running.png'
 
 function NavBar() {
   return (
@@ -8,7 +9,7 @@ function NavBar() {
       <button className="navbar-toggler toggle-button" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
-      <a className="navbar-brand" href="#">Navbar</a>
+<h3 className='navbar-brand'>Green    Gr<img src={games}/>d</h3>
       <div className="collapse navbar-collapse h-100" id="navbarTogglerDemo03">
         <ul className="navbar-nav me-auto  mb-md-0 d-flex h-100">
           <li className="nav-item pointer">

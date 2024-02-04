@@ -1,5 +1,6 @@
 import React from 'react'
 import './Carousel.css'
+import IMG from '../assets/duffy-brook-IwDTKKFmWAc-unsplashu.jpg'
 
 function Carousel() {
   return (
@@ -11,21 +12,21 @@ function Carousel() {
     </div>
     <div className="carousel-inner">
       <div className="carousel-item active">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQ_mz777c7ALkNfOf8fkekfRNaQS_-hhp5SEWnGJRQ9w&s" className="d-block w-100" alt="..."/>
+        <img src={IMG} className="d-block w-100" alt="..."/>
         <div className="carousel-caption d-none d-md-block">
           <h5>First slide label</h5>
           <p>Some representative placeholder content for the first slide.</p>
         </div>
       </div>
       <div className="carousel-item">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQ_mz777c7ALkNfOf8fkekfRNaQS_-hhp5SEWnGJRQ9w&s" className="d-block w-100" alt="..."/>
+        <img src={IMG} className="d-block w-100" alt="..."/>
         <div className="carousel-caption d-none d-md-block">
           <h5>Second slide label</h5>
           <p>Some representative placeholder content for the second slide.</p>
         </div>
       </div>
       <div className="carousel-item">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQ_mz777c7ALkNfOf8fkekfRNaQS_-hhp5SEWnGJRQ9w&s" className="d-block w-100" alt="..."/>
+        <img src={IMG} className="d-block w-100" alt="..."/>
         <div className="carousel-caption d-none d-md-block">
           <h5>Third slide label</h5>
           <p>Some representative placeholder content for the third slide.</p>
