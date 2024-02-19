@@ -26,7 +26,7 @@ toast.success('🦄 Wow so easy!', {
   return (
 <div>
 <ToastContainer />
-  <Home/>
+  {/* <Home/> */}
 <Loginpage/>
 {/* <Loader/> */}
 </div>

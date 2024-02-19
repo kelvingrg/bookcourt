@@ -2,8 +2,8 @@
 import { Slide, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export function Alert(){
-    toast.error('🦄 Wow so easy!', {
+export function Alert(message){
+    toast.error(message, {
         position: "top-right",
         autoClose: 3000,
         hideProgressBar: false,
@@ -16,8 +16,8 @@ export function Alert(){
         });
 }
 
-export  function success(){
-        toast.success('🦄 Wow so easy!', {
+export  function success(message){
+        toast.success(message, {
             position: "top-right",
             autoClose: 3000,
             hideProgressBar: false,
