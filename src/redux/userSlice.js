@@ -8,6 +8,7 @@ const generalSlice=createSlice({
     initialState:INITIAL_STATE,
     reducers:{
         setUserDetails:(state,action)=>{
+          localStorage.setItem('user',JSON.stringify(action.payload))
             state.userDetails=action.payload
         },
 

@@ -15,6 +15,7 @@ AxiosInstance.interceptors.response.use(function(response) {
     return response;
 }, function(error) {
     if (error.response && error.response.status === 401) {
+        window.location.href='/'
         console.log('Unauthorized access detected');
     }
     return Promise.reject(error);

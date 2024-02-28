@@ -4,10 +4,13 @@ import './LoginBox.css'
 import { Alert, success } from '../utils/toast'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { setUserDetails } from '../redux/userSlice'
 
 function LoginBox({setBoxType}) {
   const [loginData,setLoginData]=useState({})
   const navigate=useNavigate()
+const dispatch=useDispatch()
   const handleLogin=(e)=>{
     setLoginData({...loginData,[e.target.name]:e.target.value})
   }
@@ -18,7 +21,9 @@ function LoginBox({setBoxType}) {
       data:loginData
     }).then((res)=>{
       success('login successfull')
+      localStorage.setItem('token',res.data.token)
       setBoxType('login')
+      dispatch(setUserDetails(res.data.user))
       navigate('/home')
     })
     .catch((err)=>{
