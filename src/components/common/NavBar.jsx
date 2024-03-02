@@ -22,8 +22,8 @@ function NavBar() {
         { userDetails?.role===3 && <li className="nav-item" onClick={()=>navigate('/addnewcourt')} >
     add new court
           </li>}
-          <li className="nav-item">
-            Disabled
+          <li className="nav-item" onClick={()=>navigate('/court/courtlist')}>
+            Courts
           </li>
         </ul>
         <div className="nav-item dropdown">

@@ -11,6 +11,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { success } from './utils/toast';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import CourtList from './Pages/CourtList';
+import Details from './Pages/Details';
 
 
 function App() {
@@ -29,17 +31,22 @@ toast.success('🦄 Wow so easy!', {
   return (
 
 <>
-  {/* <div> */}
+  <div>
   <Router>
       <Routes>
         <Route path="/" element={<Loginpage/>} />
         <Route path="/home" element={  <Home/>} />
         <Route path="/addnewcourt" element={ <NewCourt/>} />
+        <Route path="/court">
+        <Route path="courtlist" element={ <CourtList/>} />
+        <Route path="details" element={ <Details/>} />
+        </Route>
+     
       </Routes>
       </Router>
 {/* <ToastContainer /> */}
 {/* <Loader/> */}
-{/* </div> */}
+</div>
 </>
 
 
