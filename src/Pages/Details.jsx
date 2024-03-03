@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./det.css";
 import NavBar from "../components/common/NavBar";
 import img from "@assets/throwing-basketball.jpg";
@@ -16,8 +16,12 @@ import "react-date-range/dist/theme/default.css";
 import { DateRange } from "react-date-range";
 import closeIcon from "@assets/close.svg";
 import Input from "../components/common/Input";
+import { useParams } from "react-router-dom";
+import AxiosInstance from "../api/apicall";
+import { TIMINGS } from "../Constants/constants";
 
 function Details() {
+  const {id}=useParams()
   const [openTimeSlot, setTimeslot] = useState(false);
   const [selectionRange, setDateRange] = useState({
     startDate: new Date(),
@@ -26,21 +30,52 @@ function Details() {
   });
   const [calenderOpen, setCalenderOpen] = useState(false);
   const [opendd, setdd]=useState(false)
-
+  const [selectedSolt,setSelectedSlot]=useState([])
+  const [filterdTimings,setFilteredTimings]=useState(TIMINGS)
+  const [cost,setCost]=useState(0)
+useEffect(()=>{
+  getLatestCreatedDate()
+getSingleCourtData()
+},[])
   const handleSelect = (ranges) => {
-    debugger;
     console.log(ranges);
     setDateRange(ranges.selection);
-    // {
-    //   selection: {
-    //     startDate: [native Date Object],
-    //     endDate: [native Date Object],
-    //   }
-    // }
   };
-  const handlecloseDd=(e)=>{
+  const handlecloseDd=(e,slot)=>{
     e.stopPropagation();
+    setSelectedSlot([...selectedSolt,slot])
+    const newTimings=filterdTimings.filter((element)=>element.id!==slot.id)
+    setFilteredTimings(newTimings)
+
 setdd(false)
+  }
+  const getSingleCourtData=()=>{
+    AxiosInstance.get('/users/getSingleCourtData',{params:{courtId:id}}).then((response)=>{
+    })
+    .catch(err=>{
+    })
+  }
+  const createCourtSchedules=()=>{
+    AxiosInstance({
+      url:'/admin/addtimeslots',
+      method:'post',
+      data:{
+        startDate:selectionRange.startDate,
+        endDate:selectionRange.endDate,
+        selectedTimings:selectedSolt,
+        cost,
+        courtId:id
+      }
+    })
+    .then((res)=>{})
+    .catch((res)=>{})
+  }
+  const getLatestCreatedDate=()=>{
+    AxiosInstance('/admin/getLatestCreatedDate',{params:{courtId:id}}).then((resp)=>{
+
+    }).catch(err=>{
+      
+    })
   }
   return (
     <>
@@ -103,12 +138,12 @@ setdd(false)
                   height={"20px"}
                   alt=""
                   onClick={() => setCalenderOpen(true)}
-                />
+                />e
               </label>
               <div className="d-flex gap-2 align-items-center mt-2">
-              <div className="timeslot-date flex-grow-1 border border-1 rounded-2 p-2 ">sdfdsf</div>
+              <div className="timeslot-date flex-grow-1 border border-1 rounded-2 p-2 ">{new Date(selectionRange.startDate).toLocaleDateString()}</div>
               <img src={forward} height={"20px"} alt="" />
-              <div className="timeslot-date flex-grow-1 border border-1 rounded-2 p-2">sdfsdf</div>
+              <div className="timeslot-date flex-grow-1 border border-1 rounded-2 p-2">{new Date(selectionRange?.endDate).toLocaleDateString()}</div>
               </div>
               
               {calenderOpen && (
@@ -137,21 +172,22 @@ setdd(false)
                 </div>
               )}
               <div className="mt-3">
-                <Input type={"number"} name={"cost"} label={"Cost"} />
+                <Input type={"number"} name={"cost"} label={"Cost"} onchange={(e)=>setCost(e.target.value)}/>
               </div>
                <div className=" range-label position-relative mt-2" onClick={()=>setdd(true)}>
                 Select Slots
                 {opendd &&  <ul className="slot-list" >
-               <li onClick={handlecloseDd}>sefsrgrer</li>
-               <li>sefsrgrer</li>
-               <li>sefsrgrer</li>
-               <li>sefsrgrer</li>
-               <li>sefsrgrer</li>
+     {        filterdTimings.map((slot,index)=><li onClick={(e)=>handlecloseDd(e,slot)}>{slot.name}</li>) }  
                 </ul>}
               </div>
+
+<div className="d-flex flex-wrap gap-2">
+  {selectedSolt.map((slot)=> <span className="border border-1 rounded-2 px-2 py-1 mt-1 fs-6 ">{slot.name}</span>)}
+</div>
+
               <div className="d-flex justify-content-end gap-3 py-2 mt-2">
                 <div className="common-button bg-black text-white">cancel</div>
-                <div className="common-button">create</div>
+                <div className="common-button" onClick={createCourtSchedules}>create</div>
               </div>
             </div>
           </>

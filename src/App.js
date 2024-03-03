@@ -39,7 +39,7 @@ toast.success('🦄 Wow so easy!', {
         <Route path="/addnewcourt" element={ <NewCourt/>} />
         <Route path="/court">
         <Route path="courtlist" element={ <CourtList/>} />
-        <Route path="details" element={ <Details/>} />
+        <Route path="details/:id" element={ <Details/>} />
         </Route>
      
       </Routes>
