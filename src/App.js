@@ -13,6 +13,7 @@ import { success } from './utils/toast';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import CourtList from './Pages/CourtList';
 import Details from './Pages/Details';
+import MyBokkings from './Pages/MyBokkings';
 
 
 function App() {
@@ -40,7 +41,9 @@ toast.success('🦄 Wow so easy!', {
         <Route path="/court">
         <Route path="courtlist" element={ <CourtList/>} />
         <Route path="details/:id" element={ <Details/>} />
+       
         </Route>
+        <Route path="/mybookings" element={ <MyBokkings/>} />
      
       </Routes>
       </Router>

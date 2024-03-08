@@ -25,6 +25,9 @@ function NavBar() {
           <li className="nav-item" onClick={()=>navigate('/court/courtlist')}>
             Courts
           </li>
+          <li className="nav-item" onClick={()=>navigate('/mybookings')}>
+            My Bookings
+          </li>
         </ul>
         <div className="nav-item dropdown">
           <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">

@@ -10,7 +10,7 @@
 .modal-box{
     max-width: 80%;
    max-height: 80%;
-   min-height: 40%;
+   /* min-height: 40%; */
    border-radius:10px ;
    position: relative;
    background-color: white;

@@ -1,0 +1,13 @@
+.booking-box{
+    min-height: 15rem;
+    background-color: rgb(171, 244, 171, .7);
+    margin-top: 2rem ;
+    border: 1px solid var(--brand-green);
+    border-radius: 8px;
+    width: 15rem;
+    padding-inline: auto;
+}
+.bookinListContainer{
+    padding: auto;
+    padding-inline: 2rem;
+}
